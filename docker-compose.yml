@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  ddns:
+    container_name: dynu_dns
+    build:
+      context: .
+      target: dynu_domain
+    environment:
+      - DYNU_APIKEY=${API_KEY}
+      - DYNU_DOMAIN=${DOMAIN}
+    restart: always

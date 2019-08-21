@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+  test:
+    container_name: test
+    build:
+      context: .
+      target: bats
+    volumes:
+      - ./scripts/:/scripts
+    entrypoint: /bin/sh #pwd && ls && bats tests/entry.bats
