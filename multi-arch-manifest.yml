@@ -1,0 +1,21 @@
+image: yackin/dynu_dynamic_dns_domain:testing
+manifests:
+  - image: yackin/dynu_dynamic_dns_domain:amd64
+    platform:
+      architecture: amd64
+      os: linux
+  - image: yackin/dynu_dynamic_dns_domain:amd64
+    platform:
+      architecture: arm
+      os: linux
+      variant: v5
+  - image: yackin/dynu_dynamic_dns_domain:amd64
+    platform:
+      architecture: arm
+      os: linux
+      variant: v7
+  - image: yackin/dynu_dynamic_dns_domain:amd64
+    platform:
+      architecture: arm64
+      os: linux
+      variant: v8
