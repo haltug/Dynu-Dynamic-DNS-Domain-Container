@@ -14,10 +14,9 @@ CMD ["bats", "."]
 # https://stackoverflow.com/questions/45395390/see-cron-output-via-docker-logs-without-using-an-extra-file
 FROM base_alpine as dynu_domain
 
-ENV TIME_INTERVAL="*/5 * * * *" \
+ENV TIME_INTERVAL="*/10 * * * *" \
     UPDATE_IP_V4=true \
     UPDATE_IP_V6=true \
-    USE_SSL=true \
     VERIFY_DYNU_CONFIG=true
 
 COPY /scripts/entry.sh /scripts/entry.sh

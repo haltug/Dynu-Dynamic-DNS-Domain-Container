@@ -7,6 +7,6 @@ services:
       context: .
       target: dynu_domain
     environment:
-      - DYNU_APIKEY=${API_KEY}
+      - DYNU_PASSWORD=${SHA256_PASSWORD}
       - DYNU_DOMAIN=${DOMAIN}
     restart: always

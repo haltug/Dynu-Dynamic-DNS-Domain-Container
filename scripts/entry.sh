@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Build the URL to curl
-http_protocol="http"
+http_protocol="https"
 base_url="://api.dynu.com/nic/update?"
 url=""
 ip_v4=""
@@ -11,19 +11,19 @@ ip_v6=""
 
 build_url_update_alias () {
     #http://api.dynu.com/nic/update?hostname=example.dynu.com&alias=Alias&username=USERNAME&password=PASSWORD
-    url="hostname=$DYNU_DOMAIN&alias=$DYNU_USERNAME&password=$DYNU_APIKEY"
+    url="hostname=$DYNU_DOMAIN&alias=$DYNU_USERNAME&password=$DYNU_PASSWORD"
 }
 
 # Create the url to update dynu for a domain
 build_url_update_domain () {
     #http://api.dynu.com/nic/update?hostname=example.dynu.com&password=PASSWORD
-    url="hostname=$DYNU_DOMAIN&password=$DYNU_APIKEY"
+    url="hostname=$DYNU_DOMAIN&password=$DYNU_PASSWORD"
 }
 
 # Create the url to update dynu for a username
 build_url_update_username () {
     #http://api.dynu.com/nic/update?username=USERNAME&password=PASSWORD
-    url="username=$DYNU_USERNAME&password=$DYNU_APIKEY"
+    url="username=$DYNU_USERNAME&password=$DYNU_PASSWORD"
 
 }
 
@@ -32,8 +32,8 @@ build_url_update_username () {
 # Break the script, there is not enough information available
 
 # If an apikey is not provided, fail
-if [ -z "$DYNU_APIKEY" ] ; then
-    echo "DYNU_APIKEY is missing"
+if [ -z "$DYNU_PASSWORD" ] ; then
+    echo "DYNU_PASSWORD is missing"
     exit 1
 fi
 
@@ -72,9 +72,9 @@ fi
 # This part is independent of whether an alias, a domain, or username is being updated 
 
 # Use https instead of http
-if [ "$USE_SSL" = true ] ; then
-    http_protocol="https"
-fi
+#if [ "$USE_SSL" = true ] ; then
+#    http_protocol="https"
+#fi
 
 # Create the additional param for not updating ip v6
 if [ "$UPDATE_IP_V6" = false ] ; then
